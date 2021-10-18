@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import useServices from '../../hooks/useServices';
 import Service from '../Service/Service';
 import './services.css'
@@ -12,7 +12,7 @@ const Services = () => {
             <Container>
                 <h1 className='text-dark-navy text-start'>Services</h1>
                 <div className="services-container">
-                    {services.map(service => <Service service={service} key={service.id}></Service>)}
+                    {services.map(service => <Service service={service} key={service._id}></Service>)}
                 </div>
             </Container>
         </div>

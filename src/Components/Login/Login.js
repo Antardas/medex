@@ -1,35 +1,63 @@
 import React from 'react';
-import { Button, Form } from 'react-bootstrap';
+import { ButtonGroup, Col, Container, Form, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './login.css'
+import signInVactor from '../../images/signin-vactor.jpg'
+import useAuth from '../../hooks/useAuth';
 
 const Login = () => {
-    return (
-        <div className='login-form-container'>
-            <Form>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label className='text-lg-start'>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" />
-                    <Form.Text className="text-muted">
-                        We'll never share your email with anyone else.
-                    </Form.Text>
-                </Form.Group>
+    const { signInUsingGoogle } = useAuth();
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Register" />
-                </Form.Group>
-                <Button variant="primary" className='me-4' type="submit">
-                    Submit
-                </Button>
-                <Button variant="secondary" type="submit">
-                    Google Sign In
-                </Button>
-                <h5>Not Registered yet? <Link to='/register' className='text-danger'>Create Account</Link></h5>
-            </Form>
+    return (
+        <div className='login-form-container text-start mt-5'>
+            <Container>
+                <Row>
+                    <Col xs lg={6}>
+                        <div className='image-section'>
+                            <img src={signInVactor} alt="sign in" />
+                        </div>
+                    </Col>
+                    <Col xs lg={6}>
+                        <div className='form-container'>
+                            <h1>Wellcome to Medex</h1>
+                            <h5 className='text-muted'>Login your account</h5>
+                            <Form>
+                                <Form.Group className="mb-3" controlId="formBasicEmail">
+                                    <Form.Label className='text-lg-start '><b>Email address</b></Form.Label>
+                                    <Form.Control type="email" placeholder="Enter email" className='input-feild-style' />
+                                    <Form.Text className="text-muted">
+                                        We'll never share your email with anyone else.
+                                    </Form.Text>
+                                </Form.Group>
+
+                                <Form.Group className="mb-3" controlId="formBasicPassword">
+                                    <Form.Label><b>Password</b> </Form.Label>
+                                    <Form.Control type="password" className='input-feild-style' placeholder="Password" />
+                                </Form.Group>
+                                <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                                    <Form.Check type="checkbox" label="Register" />
+                                </Form.Group>
+                                <button className='me-4 violate-btn' type="submit">
+                                    Sign In
+                                </button>
+                            </Form>
+                            <div className='mt-5'>
+                                <span>Sign In with</span>
+                                <ButtonGroup>
+                                    <button className='mx-4 violate-btn' type="submit">
+                                        Facebook
+                                    </button>
+                                    <button className='mx-4 violate-btn' onClick={signInUsingGoogle}>
+                                        Google
+                                    </button>
+                                </ButtonGroup>
+                            </div>
+                            <h5 className='mt-4'>Not Registered yet? <Link to='/register' className='text-violate'>Create Account</Link></h5>
+                        </div>
+                    </Col>
+                </Row>
+            </Container>
+
         </div>
     );
 };

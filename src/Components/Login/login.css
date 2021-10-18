@@ -1,4 +1,17 @@
-.login-form-container {
-    width: 400px;
-    margin: 0 auto;
+.image-section img {
+    width: 100%;
+}
+.input-feild-style {
+    border: 1px solid #7B1FD8 !important;
+}
+.text-violate {
+    color: #7B1FD8;
+}
+.violate-btn {
+    border: none;
+    font-size: 1.2rem;
+    color: aliceblue;
+    border-radius: 1.5rem;
+    padding: 0.5rem 2rem;
+    background-color: #7B1FD8;
 }

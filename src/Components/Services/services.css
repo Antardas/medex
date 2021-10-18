@@ -3,3 +3,42 @@
     grid-template-columns: repeat(4, 1fr);
     margin-top: 2rem;
 }
+/* Response Card  */
+
+@media screen and (min-width: 200px) {
+  .services-container {
+     grid-template-columns: repeat(1, 1fr);
+  }
+  .service-card {
+      margin: 1.5rem 0;
+  }
+  .service-card .img {
+      width: 100%;
+  }
+  .service-card .img img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+  }
+}
+@media screen and (min-width: 689px) {
+  .services-container {
+     grid-template-columns: repeat(2, 1fr);
+     
+  }
+  .service-card {
+      margin: 1.5rem 2rem 1.5rem 0;
+  }
+    .service-card .img {
+      width: 3rem;
+  }
+  .service-card .img img {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 992px) {
+  .services-container {
+     grid-template-columns: repeat(4, 1fr);
+  }
+}

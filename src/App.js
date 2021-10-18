@@ -10,10 +10,14 @@ import Services from './Components/Services/Services';
 import Header from './Components/Shared/Header';
 import Footer from './Components/Shared/Footer';
 import Login from './Components/Login/Login';
+import AuthProvider from './context/AuthProvider';
+import Register from './Components/Register/Register';
+
 
 function App() {
   return (
     <div className="App">
+      <AuthProvider>
       <Router>
         <Header></Header>
         <Switch>
@@ -29,12 +33,16 @@ function App() {
           <Route path='/login'>
             <Login></Login>
           </Route>
+          <Route path='/register'>
+            <Register></Register>
+          </Route>
           <Route path='*'>
             <NotFound></NotFound>
           </Route>
         </Switch>
         <Footer></Footer>
       </Router>
+      </AuthProvider>
     </div>
   );
 }

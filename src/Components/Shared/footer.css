@@ -1,6 +1,4 @@
-.footer-containr {
-    background-image: linear-gradient(top to bottom red , green);
-}
+
 .logo {
     width: 10rem;
 }
@@ -23,9 +21,7 @@
     border-radius: 50%;
     width: 100%;
 }
-.ceo-detail {
 
-}
 .footer-image  {
     margin-top: 5rem;
 }
@@ -34,7 +30,6 @@
 }
 a {
     text-decoration: none;
-    color: 'inherit';
 }
 li {
     list-style: none;
@@ -49,4 +44,11 @@ li {
     color: black;
     font-size: 1.2rem;
     text-decoration: none;
+}
+.fas {
+    font-size: 1.5rem;
+    color: #0B5ED7;
+}
+.contact-information li {
+    margin-bottom: 1rem;
 }

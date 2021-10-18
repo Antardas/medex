@@ -10,7 +10,7 @@ const Banner = () => {
         <div className='mb-5'>
             <Carousel>
                 <Carousel.Item>
-                    <div style={{ backgroundImage: `url(${slider})`, maxHeight: '90vh', backgroundSize: 'cover'}} className='d-block w-100'>
+                    <div style={{ backgroundImage: `url(${slider})`, minHeight: '90vh', backgroundSize: 'cover'}} className='d-block w-100'>
                         <Container>
                             <Row>
                                 <Col xs md={7} className='my-5'>
@@ -29,7 +29,7 @@ const Banner = () => {
                     </div>
                 </Carousel.Item>
                 <Carousel.Item>
-                    <div style={{ backgroundImage: `url(${slider2})`, maxHeight: '90vh', backgroundSize: 'cover'}} className='d-block w-100'>
+                    <div style={{ backgroundImage: `url(${slider2})`, minHeight: '90vh', backgroundSize: 'cover'}} className='d-block w-100'>
                         <Container>
                             <Row>
                                 <Col xs md={7} className='my-5'>
