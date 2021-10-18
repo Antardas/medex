@@ -1,0 +1,82 @@
+[
+    {
+        "_id": 0,
+        "surgeon": "Steele Frye",
+        "title": "Cardilogy",
+        "description": "Cardiology is the study and treatment of disorders of the heart and the blood vessels. A person with heart disease or cardiovascular disease may be referred to a cardiologist. Cardiology is a branch of internal medicine. ... A cardiologist specializes in diagnosing and treating diseases of the cardiovascular system.",
+        "price": 560,
+        "gender": "male",
+        "phone": "+1 (896) 547-3141",
+        "img": "https://i.ibb.co/SKthCVW/cardiology.png"
+    },
+    {
+        "_id": 1,
+        "surgeon": "Elsa Jennings",
+        "title": "Orthopedics",
+        "description": "Orthopedics is a branch of medicine that focuses on the care of the musculoskeletal system. ... A person who specializes in orthopedics is known as an orthopedist. Orthopedists use both surgical and nonsurgical approaches to treat a variety of musculoskeletal issues, such as sports injuries, joint pain, and back problems.",
+        "price": 560,
+        "gender": "female",
+        "phone": "+1 (864) 456-3047",
+        "img": "https://i.ibb.co/FKMxv11/orthopedics.png"
+    },
+    {
+        "_id": 2,
+        "surgeon": "Isabella Britt",
+        "title": "Pulmonology",
+        "description": "Pulmonology is a field of medicine that focuses specifically on diagnosing and treating disorders of the respiratory system. Subspecialties of pulmonology include: interstitial lung disease, which focuses on lung diseases marked by persistent inflammation and scarring.",
+        "price": 560,
+        "gender": "female",
+        "phone": "+1 (892) 526-2643",
+        "img": "https://i.ibb.co/x8T4mQ9/pulmonology.png"
+    },
+    {
+        "_id": 3,
+        "surgeon": "Harris Sawyer",
+        "title": "Dental Care",
+        "description": "Brush teeth and gums at least twice a day. If you can, brush 30 minutes to 1 hour after every meal. Brushing removes plaque, a film of bacteria",
+        "price": 560,
+        "gender": "male",
+        "phone": "+1 (930) 508-2568",
+        "img": "https://i.ibb.co/ByHJ8pT/dental-care.png"
+    },
+    {
+        "_id": 4,
+        "surgeon": "Alba Dale",
+        "title": "Medicine",
+        "description": "Medicine is the science and practice of caring for a patient, managing the diagnosis, prognosis, prevention, treatment, palliation of their injury or disease, and promoting their health.",
+        "price": 560,
+        "gender": "female",
+        "phone": "+1 (934) 457-3699",
+        "img": "https://i.ibb.co/CbQCg4f/medicine.png"
+    },
+    {
+        "_id": 5,
+        "surgeon": "Walton Moran",
+        "title": "Ambulance",
+        "description": "An emergency medical service aggregation platform in Bangladesh located in Dhaka. Book an ambulance here to get the fastest response.",
+        "price": 560,
+        "gender": "male",
+        "phone": "+1 (906) 534-3610",
+        "img": "https://i.ibb.co/PmcsFL7/ambulance.png"
+    },
+    {
+        "_id": 6,
+        "surgeon": "Kristine Hess",
+        "title": "Ophthalmology",
+        "description": "An ophthalmologist is a medical doctor (MD) who specialises in eye and vision care. Ophthalmologists are trained to perform eye tests, diagnose and treat disease, prescribe medications and perform eye surgery. ",
+        "price": 560,
+        "gender": "female",
+        "phone": "+1 (847) 409-2256",
+        "img": "https://i.ibb.co/VBPF2Qs/ophthalmology.png"
+    },
+    {
+        "_id": 7,
+        "surgeon": "Nielsen Miller",
+        "title": "Neurology",
+        "description": "Neurology is a branch of medicine dealing with disorders of the nervous system. Neurology deals with the diagnosis and treatment of all categories of conditions and disease involving the central and peripheral nervous systems, including their coverings, blood vessels,",
+        "price": 560,
+        "gender": "male",
+        "phone": "+1 (841) 595-2253",
+        "img": "https://i.ibb.co/d4BH1xc/neurology.png"
+    }
+]

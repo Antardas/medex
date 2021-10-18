@@ -1,0 +1,52 @@
+.footer-containr {
+    background-image: linear-gradient(top to bottom red , green);
+}
+.logo {
+    width: 10rem;
+}
+.logo img {
+    width: 100%;
+}
+.company-description  {
+    text-align: justify;
+}
+.signatue {
+    width: 8rem;
+}
+.signatue img{
+    width: 100%;
+}
+.ceo-img {
+    width: 5rem;
+}
+.ceo-img img {
+    border-radius: 50%;
+    width: 100%;
+}
+.ceo-detail {
+
+}
+.footer-image  {
+    margin-top: 5rem;
+}
+.footer-image img {
+    width: 100%;
+}
+a {
+    text-decoration: none;
+    color: 'inherit';
+}
+li {
+    list-style: none;
+}
+.userful-link {
+    text-align: left;
+}
+.userful-link  a{
+    text-align: left;
+    padding: 0.3rem  0;
+    display: inline-block;
+    color: black;
+    font-size: 1.2rem;
+    text-decoration: none;
+}

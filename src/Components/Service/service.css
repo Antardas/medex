@@ -1,0 +1,43 @@
+.service-card {
+    border: 1px solid rgb(7, 0, 59);
+    margin: 1.3rem 2rem 1.3rem  0;
+    box-sizing: border-box;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    position: relative;
+    transition: 1s;
+
+}
+.service-card::before {
+position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0%;
+    background-color: rgb(7, 0, 59);
+    z-index: -1;
+    transition: 1s ;
+  border-radius: 0.5rem;
+  
+}
+.img {
+    width: 3rem;
+    border-radius: 0.8rem;
+    transition: 0.5s;
+}
+.img img{
+    width: 100%;
+}
+.service-card:hover::before{
+    color: aliceblue;
+    width: 100%;
+}
+.service-card:hover {
+    color: aliceblue;
+    border: 1px solid transparent;
+
+}
+.service-card:hover .img {
+    background-color: aliceblue;
+}
