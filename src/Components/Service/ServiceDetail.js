@@ -17,7 +17,7 @@ const ServiceDetail = () => {
 
     const { img, title, description, surgeon, price, phone } = item
     return (
-        <div className='service-container w-50 mx-auto'>
+        <div className='service-container mt-5 w-50 mx-auto'>
             <div className="service-img">
                 <img src={img} alt="" />
             </div>
