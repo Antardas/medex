@@ -1,18 +1,22 @@
 import React, { useState } from 'react';
 import { ButtonGroup, Col, Container, Form, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import signInVactor from '../../images/signin-vactor.jpg'
 
 
 const Register = () => {
-    const { signUpUsingEmailAndPassword, signInUsingGoogle } = useAuth();
+    const { signUpUsingEmailAndPassword, signInUsingGoogle, signInUsignGithub, setUser, setIsLoading } = useAuth();
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState('');
     const [blankedInput, SetBlankedInput] = useState(false);
+    const location = useLocation();
+    const history = useHistory()
+    const redirect_url = location.state?.from || '/home';
+
     const nameBlurEventHandler = (e) => {
         const name = e.target.value;
 
@@ -52,6 +56,29 @@ const Register = () => {
         e.preventDefault();
         signUpUsingEmailAndPassword(name, email, password);
 
+    }
+    const handleSignInUsingGoogle = () => {
+        signInUsingGoogle()
+            .then((result) => {
+                const user = result.user;
+                setUser(user);
+                history.push(redirect_url)
+            }).catch(error => {
+                console.log(error);
+            }).finally(() => {
+                setIsLoading(false)
+            })
+    }
+    const handleSignInUsingGithub = () => {
+        signInUsignGithub()
+            .then((result) => {
+                const user = result.user;
+                setUser(user);
+                history.push(redirect_url)
+            }).catch((error) => {
+                const errorMessage = error.message;
+                alert(errorMessage);
+            }).finally(() => setIsLoading(false))
     }
     return (
         <div className='login-form-container text-start mt-5'>
@@ -95,8 +122,8 @@ const Register = () => {
                                 <h5 className='text-danger'>{error}</h5>
                                 <span>Register with</span>
                                 <ButtonGroup>
-                                    <button className='mx-4 violate-btn' type="submit">
-                                        Facebook
+                                    <button className='mx-4 violate-btn' onClick={signInUsignGithub} type="submit">
+                                        Github
                                     </button>
                                     <button className='mx-4 violate-btn' onClick={signInUsingGoogle}>
                                         Google

@@ -6,12 +6,14 @@ import signInVactor from '../../images/signin-vactor.jpg'
 import useAuth from '../../hooks/useAuth';
 
 const Login = () => {
-    const { signInUsingGoogle, logInUsingEmailAndPassword} = useAuth();
+    const { signInUsingGoogle, logInUsingEmailAndPassword, signInUsignGithub, setUser, setIsLoading } = useAuth();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState('');
     const location = useLocation();
+    const history = useHistory()
     const redirect_url = location.state?.from || '/home';
+    console.log(redirect_url)
 
     const emailBlurEventHandler = (e) => {
         const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -36,25 +38,62 @@ const Login = () => {
 
         }
     }
-    const signInHandler = (e) => {
+    const emailAndPasswrodSignInHandler = (e) => {
         e.preventDefault();
-        logInUsingEmailAndPassword(email, password, redirect_url)
+        logInUsingEmailAndPassword(email, password)
+            .then((result) => {
+                // Signed in 
+                const user = result.user;
+                setUser(user);
+                history.push(redirect_url);
+                console.log('redirecturl', redirect_url);
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                alert(errorMessage);
+            }).finally(() => setIsLoading(false))
 
-}
+    }
+    const handleSignInUsingGoogle = () => {
+        signInUsingGoogle()
+            .then((result) => {
+                const user = result.user;
+                setUser(user);
+                history.push(redirect_url)
+            }).catch(error => {
+                console.log(error);
+            }).finally(() => {
+                setIsLoading(false)
+            })
+    }
+    const handleSignInUsingGithub = () => {
+        signInUsignGithub()
+            .then((result) => {
+                const user = result.user;
+                setUser(user);
+                history.push(redirect_url)
+            }).catch((error) => {
+                const errorMessage = error.message;
+                alert(errorMessage);
+            }).finally(() => setIsLoading(false))
+    }
+
     return (
         <div className='login-form-container text-start mt-5'>
             <Container>
                 <Row>
-                    <Col xs lg={6}>
+                    <Col xs md={12} lg={6}>
                         <div className='image-section'>
                             <img src={signInVactor} alt="sign in" />
                         </div>
                     </Col>
-                    <Col xs lg={6}>
+                    <Col xs md={12} lg={6}>
                         <div className='form-container'>
                             <h1>Wellcome to Medex</h1>
                             <h5 className='text-muted'>Login your account</h5>
-                            <Form onSubmit={signInHandler}>
+                            <Form onSubmit={emailAndPasswrodSignInHandler}>
                                 <Form.Group className="mb-3" controlId="formBasicEmail">
                                     <Form.Label className='text-lg-start '><b>Email address</b></Form.Label>
                                     <Form.Control type="email" placeholder="Enter email" className='input-feild-style' onBlur={emailBlurEventHandler} />
@@ -62,7 +101,7 @@ const Login = () => {
 
                                 <Form.Group className="mb-3" controlId="formBasicPassword">
                                     <Form.Label><b>Password</b> </Form.Label>
-                                    <Form.Control type="password" className='input-feild-style' placeholder="Password" onBlur={passwordBlurEventHandler}/>
+                                    <Form.Control type="password" className='input-feild-style' placeholder="Password" onBlur={passwordBlurEventHandler} />
                                 </Form.Group>
                                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                                     <Form.Check type="checkbox" label="Rememember Me" />
@@ -72,12 +111,15 @@ const Login = () => {
                                 </button>
                             </Form>
                             <div className='mt-5'>
+                                <div>
+                                    {error && <h4 className='text-danger'>{error}</h4>}
+                                </div>
                                 <span>Sign In with</span>
                                 <ButtonGroup>
-                                    <button className='mx-4 violate-btn' type="submit">
-                                        Facebook
+                                    <button className='mx-4 violate-btn' onClick={handleSignInUsingGithub} type="submit">
+                                        Github
                                     </button>
-                                    <button className='mx-4 violate-btn' onClick={signInUsingGoogle}>
+                                    <button className='mx-4 violate-btn' onClick={handleSignInUsingGoogle}>
                                         Google
                                     </button>
                                 </ButtonGroup>
@@ -86,6 +128,7 @@ const Login = () => {
                         </div>
                     </Col>
                 </Row>
+
             </Container>
 
         </div>
