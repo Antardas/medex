@@ -15,3 +15,7 @@
     padding: 0.5rem 2rem;
     background-color: #7B1FD8;
 }
+.violate-btn:hover {
+    background-color: #7100e2;
+
+}

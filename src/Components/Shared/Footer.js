@@ -14,7 +14,7 @@ const Footer = () => {
         <div className='mt-5 footer-container' style={{ backgroundImage: `url(${footeBg})`, backgroundSize: 'cover' }}>
             <Container className='py-5'>
                 <Row>
-                    <Col xs md={3}>
+                    <Col xs lg={3} sm={6}>
                         <div className="signle-footer-widget">
                             <div className='logo'>
                                 <img src={logo} alt="logo" />
@@ -37,7 +37,7 @@ const Footer = () => {
 
                         </div>
                     </Col>
-                    <Col xs md={4}>
+                    <Col xs lg={4} sm={6}>
                         <div className="signle-footer-widget">
                             <div className="footer-image">
 
@@ -46,7 +46,7 @@ const Footer = () => {
                         </div>
                     </Col>
                 {/* Useful Link */}
-                    <Col xs md={2}>
+                    <Col xs lg={2} sm={6}>
                         <div className="signle-footer-widget">
                             <h3 className='text-dark-navy'>Useful Link</h3>
                             <ul>
@@ -59,13 +59,13 @@ const Footer = () => {
                             </ul>
                         </div>
                     </Col>
-                    <Col xs md={3}>
+                    <Col xs lg={3} sm={6}>
                         <div className="signle-footer-widget contact-information">
                             <h3 className='text-dark-navy'>Contact Information</h3>
                             <ul className='text-start'>
                                 <li className='d-flex'>
                                     <div className='me-4'>
-                                    <i className="fas fa-phone-alt"></i>
+                                    <i className="fas fontawsome-icon-color fa-phone-alt"></i>
                                     </div>
                                     <div>
                                     <h5> <a href="tel:00123654878">00123654878</a> </h5>
@@ -74,7 +74,7 @@ const Footer = () => {
                                 </li>
                                 <li className='d-flex'>
                                     <div className='me-4'>
-                                        <i className="far fas fa-clock"></i>
+                                        <i className="far fontawsome-icon-color fas fa-clock"></i>
                                     </div>
                                     <div>
                                     <h5>09:00 AM to 18:00 PM</h5>
@@ -83,7 +83,7 @@ const Footer = () => {
                                 </li>
                                 <li className='d-flex'>
                                     <div className='me-4'>
-                                        <i className="fas fa-map-marker-alt"></i>
+                                        <i className="fas fontawsome-icon-color fa-map-marker-alt"></i>
                                     </div>
                                     <div>
                                     <h5>35 West Dental Street California 1004</h5>

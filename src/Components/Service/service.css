@@ -43,3 +43,41 @@ position: absolute;
 }
 
 
+/* Service Detail Page style section */
+.fontawesome-desgin {
+    color: #7B1FD8;
+    font-size: 1.3rem;
+    
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+ 
+
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 768px) {
+   .service-detail .direction {
+    flex-direction: column;
+}
+.direction b {
+    margin-bottom: 1rem;
+}
+.service-container {
+    width: 80%;
+}
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+} 

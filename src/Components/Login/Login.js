@@ -1,13 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ButtonGroup, Col, Container, Form, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useHistory } from 'react-router-dom';
 import './login.css'
 import signInVactor from '../../images/signin-vactor.jpg'
 import useAuth from '../../hooks/useAuth';
 
 const Login = () => {
-    const { signInUsingGoogle } = useAuth();
+    const { signInUsingGoogle, logInUsingEmailAndPassword} = useAuth();
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState('');
+    const location = useLocation();
+    const redirect_url = location.state?.from || '/home';
 
+    const emailBlurEventHandler = (e) => {
+        const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        const email = e.target.value
+        if (emailRegex.test(email)) {
+            setError('')
+            setEmail(email)
+        } else {
+            setError('Please Enter right Email')
+        }
+    }
+    const passwordBlurEventHandler = (e) => {
+        const pass = e.target.value;
+
+        if (pass.length === 0) {
+            setError('Please Enter your password');
+        } else if (pass.length < 6) {
+            setError('Your password must be 6 Character')
+        } else {
+            setError('')
+            setPassword(pass)
+
+        }
+    }
+    const signInHandler = (e) => {
+        e.preventDefault();
+        logInUsingEmailAndPassword(email, password, redirect_url)
+
+}
     return (
         <div className='login-form-container text-start mt-5'>
             <Container>
@@ -21,21 +54,18 @@ const Login = () => {
                         <div className='form-container'>
                             <h1>Wellcome to Medex</h1>
                             <h5 className='text-muted'>Login your account</h5>
-                            <Form>
+                            <Form onSubmit={signInHandler}>
                                 <Form.Group className="mb-3" controlId="formBasicEmail">
                                     <Form.Label className='text-lg-start '><b>Email address</b></Form.Label>
-                                    <Form.Control type="email" placeholder="Enter email" className='input-feild-style' />
-                                    <Form.Text className="text-muted">
-                                        We'll never share your email with anyone else.
-                                    </Form.Text>
+                                    <Form.Control type="email" placeholder="Enter email" className='input-feild-style' onBlur={emailBlurEventHandler} />
                                 </Form.Group>
 
                                 <Form.Group className="mb-3" controlId="formBasicPassword">
                                     <Form.Label><b>Password</b> </Form.Label>
-                                    <Form.Control type="password" className='input-feild-style' placeholder="Password" />
+                                    <Form.Control type="password" className='input-feild-style' placeholder="Password" onBlur={passwordBlurEventHandler}/>
                                 </Form.Group>
                                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                                    <Form.Check type="checkbox" label="Register" />
+                                    <Form.Check type="checkbox" label="Rememember Me" />
                                 </Form.Group>
                                 <button className='me-4 violate-btn' type="submit">
                                     Sign In

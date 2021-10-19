@@ -1,0 +1,81 @@
+.healthcara-continer {
+    margin-top: 5rem;
+}
+
+.healthcare-stethoscope img {
+    display: block;
+margin: 1rem auto;
+
+}
+.doctor-img {
+    text-align: center;
+    position: relative;
+}
+.doctor-img img {
+    max-width: 100%;
+    height: auto;
+}
+.circle-pattern {
+    position: absolute;
+    content: '';
+    background-image: linear-gradient(to right, #d6f9f9, #daf5f5, #def2f2, #e2eeee, #e5eaea);
+    width: 34rem;
+    height: 34rem;
+    border-radius: 50%;
+    bottom: 0;
+    left: 1.9rem;
+    z-index: -1;
+}
+ /* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 768px) {
+
+    .healthcare-stethoscope img  {
+        width: 200px;
+    }
+
+    .doctor-img img {
+        width: 35rem;
+    }
+    .circle-pattern {
+        display: none;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+.circle-pattern {
+    left: 2rem;
+}
+.circle-pattern {
+    left: 6rem;
+    bottom: 0;
+    width: 37rem;
+    height: 37rem;
+}
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+        .circle-pattern {
+        display: block;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+    .circle-pattern {
+        width: 22rem;
+        height: 22rem;
+        left: 5rem;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .circle-pattern {
+        width: 36rem;
+        height: 36rem;
+        left: 5rem;
+    }
+} 

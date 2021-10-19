@@ -11,7 +11,8 @@ const Register = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [error, setError] = useState('')
+    const [error, setError] = useState('');
+    const [blankedInput, SetBlankedInput] = useState(false);
     const nameBlurEventHandler = (e) => {
         const name = e.target.value;
 
@@ -46,7 +47,7 @@ const Register = () => {
         }
     }
 
-
+// Sign Up Handle
     const signUpHandler = (e) => {
         e.preventDefault();
         signUpUsingEmailAndPassword(name, email, password);
