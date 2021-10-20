@@ -1,0 +1,83 @@
+.appointement {
+    background-color: #F5F6FB;
+    padding: 3rem 0;
+}
+.detail-appoinment {
+    margin-right: 2rem;
+}
+.detail-appoinment h1 {
+    margin-top: 3rem;
+}
+.phone-detail  {
+    position: relative;
+    transition: 0.6s;
+    margin-top: 2.3rem;
+}
+a {
+  text-decoration: none;
+}
+.phone-detail span {
+    font-weight: 600;
+    color: gray;
+}
+.link {
+    text-decoration: none;
+}
+.phone-detail:hover .phone-icon i {
+background-color: #169fed;
+color: #fff;
+}
+.phone-icon i {
+height:6rem;
+width: 6rem;
+font-size: 3rem;
+background-color: #fff;
+line-height: 6rem;
+border-radius: 50%;
+text-align: center;
+transition: 0.6s;
+box-shadow: 0 0 1.25rem rgba(108,118,134,.1);
+color: #169fed;
+position: absolute;
+}
+.phone-info {
+    padding-left: 7rem;
+}
+.phone-info h3 {
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+.appointment-social-information {
+    margin-top: 2.5rem;
+}
+.appointment-social-information .social {
+    padding: 0;
+    list-style-type: none;
+    margin-bottom: 0;
+    margin-top: 25px;
+}
+.appointment-social-information .social li {
+    display: inline-block;
+}
+.appointment-social-information .social li i {
+    height: 2.9rem;
+    width: 2.9rem;
+    background-color: #fff;
+    line-height: 2.9rem;
+    text-align: center;
+    margin-right: 1rem;
+    border-radius: 50%;
+    font-size: 1.45rem;
+    transition: 0.6s;
+}
+.appointment-social-information .social li:hover i {
+    background-color: #169fed;
+    color: #fff;
+}
+.appointment-form {
+    padding: 3rem 2rem !important;
+    background-color: #fff;
+    border-radius: 1.5rem;
+box-shadow:  20px 20px 60px #dddddd,
+             -20px -20px 60px #ffffff;
+}

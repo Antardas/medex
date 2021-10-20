@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 import useServices from '../../hooks/useServices';
 import './service.css'
 const ServiceDetail = () => {
@@ -17,7 +18,7 @@ const ServiceDetail = () => {
 
     const { img, title, description, surgeon, price, phone } = item
     return (
-        <div className='service-container mt-5 w-50 mx-auto'>
+        <div className='service-container  mt-5 w-lg-50  mx-auto'>
             <div className="service-img">
                 <img src={img} alt="" />
             </div>
@@ -27,9 +28,9 @@ const ServiceDetail = () => {
                 <div className='d-flex direction justify-content-between text-violate'>
                     <b><i className="fas me-3 fontawesome-desgin fa-user-md"></i>Doctor: {surgeon}</b>
                     <b><i className="fas me-3 fontawesome-desgin fa-phone-alt"></i>Phone: {phone}</b>
-                    <b className=' text-violate'><i class="fas fa-dollar-sign"></i>Price: {price}</b>
+                    <b className=' text-violate'><i className="fas fa-dollar-sign"></i>Price: {price}</b>
                 </div>
-                <button className='violate-btn mt-5'>Book Service</button>
+                <Link to='/getappointment'><button className='violate-btn mt-5'>Book Service</button></Link>
             </div>
         </div>
     );

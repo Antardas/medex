@@ -28,7 +28,10 @@ const Header = () => {
                             <Nav.Link className='text-light menu-item' as={Link} to="/home">Home</Nav.Link>
                             <HashLink className='text-light menu-item nav-link' as={Link} to="/home#services">Services</HashLink>
                             {
-                                user?.email ? <span>user: {user.displayName}<button className='violate-btn' onClick={logOut}>Log Out</button></span> : <Nav.Link className='text-light menu-item' as={Link} to="/Login" >Login</Nav.Link>
+                                user?.email ?
+                                    <button className='violate-btn' onClick={logOut}>Log Out</button>
+                                    :
+                                    <Nav.Link className='text-light menu-item' as={Link} to="/Login" >Login</Nav.Link>
                             }
                         </Nav>
                     </Navbar.Collapse>

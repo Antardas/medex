@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { ButtonGroup, Col, Container, Form, Row } from 'react-bootstrap';
+import { Col, Container, Form, Row } from 'react-bootstrap';
 import { Link, useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import signInVactor from '../../images/signin-vactor.jpg'
 
 
 const Register = () => {
-    const { signUpUsingEmailAndPassword, signInUsingGoogle, signInUsignGithub, setUser, setIsLoading } = useAuth();
+    const { signUpUsingEmailAndPassword, signInUsingGoogle, signInUsignGithub, setUser, setIsLoading, updateProfile, auth } = useAuth();
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -47,14 +47,35 @@ const Register = () => {
         } else {
             setError('')
             setPassword(pass)
-            
+
         }
     }
 
-// Sign Up Handle
+    // Sign Up Handle
     const signUpHandler = (e) => {
         e.preventDefault();
-        signUpUsingEmailAndPassword(name, email, password);
+        signUpUsingEmailAndPassword(name, email, password)
+            .then((result) => {
+                const user = result.user;
+                console.log('name:', name);
+                setUser(user);
+                updateProfile(auth.currentUser, {
+                    displayName: { name }
+                })
+                    .then(() => {
+                        // Profile updated!
+
+                        // ...
+                    }).catch((error) => {
+                        // An error occurred
+                        // ...
+                    })
+                console.log(user)
+                history.push(redirect_url);
+            }).catch(error => {
+                alert(error.message)
+            }).finally(() => setIsLoading(false));
+
 
     }
     const handleSignInUsingGoogle = () => {
@@ -84,13 +105,13 @@ const Register = () => {
         <div className='login-form-container text-start mt-5'>
             <Container>
                 <Row>
-                    <Col xs lg={6}>
+                    <Col  md={12} lg={6} className='w-xs-100 w-md-50'>
                         <div className='image-section'>
                             <img src={signInVactor} alt="sign in" />
                         </div>
                     </Col>
 
-                    <Col xs lg={6}>
+                    <Col  md={12} lg={6} className='w-xs-100 w-md-50'>
                         <div className='form-container'>
                             <h1>Wellcome to Medex</h1>
                             <h5 className='text-muted'>Create a New Account</h5>
@@ -118,17 +139,17 @@ const Register = () => {
                                 </button>
                             </Form>
                             <div className='mt-5'>
-                                
+
                                 <h5 className='text-danger'>{error}</h5>
-                                <span>Register with</span>
-                                <ButtonGroup>
-                                    <button className='mx-4 violate-btn' onClick={signInUsignGithub} type="submit">
-                                        Github
+                                <span className='signin-text mb-3 d-block'>Register with</span>
+                                <div className='others-signin-btn'>
+                                    <button className='mx-4 violate-btn' onClick={handleSignInUsingGithub} type="submit">
+                                        <i className="fab fa-github"></i>
                                     </button>
-                                    <button className='mx-4 violate-btn' onClick={signInUsingGoogle}>
-                                        Google
+                                    <button className='mx-4 violate-btn' onClick={handleSignInUsingGoogle}>
+                                        <i className="fab fa-google"></i>
                                     </button>
-                                </ButtonGroup>
+                                </div>
                             </div>
                             <h5 className='mt-4'>I am already member <Link to='/login' className='text-violate'>Log in</Link></h5>
                         </div>

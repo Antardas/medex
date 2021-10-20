@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ButtonGroup, Col, Container, Form, Row } from 'react-bootstrap';
+import { Col, Container, Form, Row } from 'react-bootstrap';
 import { Link, useLocation, useHistory } from 'react-router-dom';
 import './login.css'
 import signInVactor from '../../images/signin-vactor.jpg'
@@ -15,6 +15,7 @@ const Login = () => {
     const redirect_url = location.state?.from || '/home';
     console.log(redirect_url)
 
+    // Get user input email
     const emailBlurEventHandler = (e) => {
         const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         const email = e.target.value
@@ -25,6 +26,7 @@ const Login = () => {
             setError('Please Enter right Email')
         }
     }
+    // Get user input Password
     const passwordBlurEventHandler = (e) => {
         const pass = e.target.value;
 
@@ -50,7 +52,6 @@ const Login = () => {
                 // ...
             })
             .catch((error) => {
-                const errorCode = error.code;
                 const errorMessage = error.message;
                 alert(errorMessage);
             }).finally(() => setIsLoading(false))
@@ -84,12 +85,12 @@ const Login = () => {
         <div className='login-form-container text-start mt-5'>
             <Container>
                 <Row>
-                    <Col xs md={12} lg={6}>
+                    <Col className='w-xs-100 w-md-50' md={12} lg={6}>
                         <div className='image-section'>
                             <img src={signInVactor} alt="sign in" />
                         </div>
                     </Col>
-                    <Col xs md={12} lg={6}>
+                    <Col className='w-xs-100 w-md-50' md={12} lg={6}>
                         <div className='form-container'>
                             <h1>Wellcome to Medex</h1>
                             <h5 className='text-muted'>Login your account</h5>
@@ -114,15 +115,15 @@ const Login = () => {
                                 <div>
                                     {error && <h4 className='text-danger'>{error}</h4>}
                                 </div>
-                                <span>Sign In with</span>
-                                <ButtonGroup>
+                                <span className='signin-text mb-3 d-block'>Sign In with</span>
+                                <div className='others-signin-btn'>
                                     <button className='mx-4 violate-btn' onClick={handleSignInUsingGithub} type="submit">
-                                        Github
+                                        <i className="fab fa-github"></i>
                                     </button>
                                     <button className='mx-4 violate-btn' onClick={handleSignInUsingGoogle}>
-                                        Google
+                                        <i className="fab fa-google"></i>
                                     </button>
-                                </ButtonGroup>
+                                </div>
                             </div>
                             <h5 className='mt-4'>Not Registered yet? <Link to='/register' className='text-violate'>Create Account</Link></h5>
                         </div>

@@ -19,3 +19,38 @@
     background-color: #7100e2;
 
 }
+.signin-text {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: rgb(104, 101, 101);
+}
+
+ /* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .others-signin-btn .violate-btn {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+    .others-signin-btn:nth-child(1) {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+} 

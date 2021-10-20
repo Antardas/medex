@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword, GithubAuthProvider } from 'firebase/auth'
 import initializeAuthentication from '../firebase/firebase.initialize';
-import { useHistory } from 'react-router';
 
 initializeAuthentication();
 const useFirebase = () => {
@@ -46,8 +45,8 @@ const useFirebase = () => {
     const signUpUsingEmailAndPassword = (name, email, password) => {
         console.log(name)
         setIsLoading(true)
-        createUserWithEmailAndPassword(auth, email, password)
-            .then((result) => {
+        return createUserWithEmailAndPassword(auth, email, password)
+            /* .then((result) => {
                 const user = result.user;
                 setUser(user);
                 console.log('paichi re')
@@ -64,7 +63,7 @@ const useFirebase = () => {
                 // An error occurred
                 // ...
             });
-        console.log(user)
+        console.log(user) */
     }
 
     // Sign in existing users 
@@ -120,7 +119,9 @@ const useFirebase = () => {
         logInUsingEmailAndPassword,
         isLoading,
         setIsLoading,
-        signInUsignGithub
+        signInUsignGithub,
+        updateProfile,
+        auth
     }
 }
 

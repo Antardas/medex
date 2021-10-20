@@ -13,18 +13,24 @@
       margin: 1.5rem 0;
   }
   .service-card .img {
-      width: 100%;
+      width: 4rem;
   }
   .service-card .img img {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 30%;
+  width: 100%;
   }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
+    .service-card .img {
+      width: 3rem;
+  }
+  .service-card .img img {
+    width: 100%;
+  }
   
 }
 
