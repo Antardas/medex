@@ -28,7 +28,9 @@ const Header = () => {
                             <HashLink className='text-light menu-item menu-style nav-link' as={Link} to="/home#services">Services</HashLink>
                             {
                                 user?.email ?
-                                    <span><span className='text-danger menu-style d-inline-block me-3'>User Name: {user.displayName}</span><button className='violate-btn' onClick={logOut}>Log Out</button></span>
+                                    <span><span className='text-danger menu-style d-inline-block me-3'>User Name: {user.displayName}</span><button className='violate-btn' onClick={logOut}>Log Out</button>
+                                    <span><img src="f" alt="" /></span>
+                                    </span>
                                     :
                                     <>
                                         <Nav.Link className='text-light menu-item menu-style' as={Link} to="/Login" >Login</Nav.Link>
