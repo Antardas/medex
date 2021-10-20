@@ -42,8 +42,7 @@ const useFirebase = () => {
 
     // new user Sign up using Email & pass
 
-    const signUpUsingEmailAndPassword = (name, email, password) => {
-        console.log(name)
+    const signUpUsingEmailAndPassword = (email, password) => {
         setIsLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
             /* .then((result) => {

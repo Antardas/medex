@@ -54,24 +54,23 @@ const Register = () => {
     // Sign Up Handle
     const signUpHandler = (e) => {
         e.preventDefault();
-        signUpUsingEmailAndPassword(name, email, password)
+        signUpUsingEmailAndPassword(email, password)
             .then((result) => {
                 const user = result.user;
                 console.log('name:', name);
                 setUser(user);
                 updateProfile(auth.currentUser, {
-                    displayName: { name }
+                    displayName: name, photoURL: "https://example.com/jane-q-user/profile.jpg"
+                }).then(() => {
+                    // Profile updated!
+                    window.location.reload();
+                    // ...
+                }).catch((error) => {
+                    // An error occurred
+                    // ...
                 })
-                    .then(() => {
-                        // Profile updated!
-
-                        // ...
-                    }).catch((error) => {
-                        // An error occurred
-                        // ...
-                    })
-                console.log(user)
                 history.push(redirect_url);
+                console.log(user)
             }).catch(error => {
                 alert(error.message)
             }).finally(() => setIsLoading(false));

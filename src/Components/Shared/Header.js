@@ -5,7 +5,6 @@ import logo from '../../images/logo.png';
 import { HashLink } from 'react-router-hash-link'
 import './Header.css'
 import useAuth from '../../hooks/useAuth';
-import useServices from '../../hooks/useServices';
 
 
 const Header = () => {
@@ -25,13 +24,16 @@ const Header = () => {
                             style={{ maxHeight: '100px' }}
                             navbarScroll
                         >
-                            <Nav.Link className='text-light menu-item' as={Link} to="/home">Home</Nav.Link>
-                            <HashLink className='text-light menu-item nav-link' as={Link} to="/home#services">Services</HashLink>
+                            <Nav.Link className='text-light menu-item menu-style' as={Link} to="/home">Home</Nav.Link>
+                            <HashLink className='text-light menu-item menu-style nav-link' as={Link} to="/home#services">Services</HashLink>
                             {
                                 user?.email ?
-                                    <button className='violate-btn' onClick={logOut}>Log Out</button>
+                                    <span><span className='text-danger menu-style d-inline-block me-3'>User Name: {user.displayName}</span><button className='violate-btn' onClick={logOut}>Log Out</button></span>
                                     :
-                                    <Nav.Link className='text-light menu-item' as={Link} to="/Login" >Login</Nav.Link>
+                                    <>
+                                        <Nav.Link className='text-light menu-item menu-style' as={Link} to="/Login" >Login</Nav.Link>
+                                        <Nav.Link className='text-light menu-item ' as={Link} to="/Register" ><button className='violate-btn'>Register</button></Nav.Link>
+                                    </>
                             }
                         </Nav>
                     </Navbar.Collapse>
